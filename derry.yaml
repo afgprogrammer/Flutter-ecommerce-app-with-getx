@@ -1,0 +1,32 @@
+build_once: flutter pub run build_runner build --delete-conflicting-outputs
+# Run whenever start working. It will generate Freezed classes
+watch: flutter pub run build_runner watch --delete-conflicting-outputs
+
+gen:
+  - flutter pub get
+  - flutter packages pub run build_runner build
+
+start_ios:
+  - xcrun simctl list
+  - open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
+
+clean:
+  - flutter clean
+  - flutter pub get
+
+purge:
+  - pod deintegrate
+  #- rm Flutter/Flutter.podspec
+  - flutter clean
+  - flutter pub get
+  #- pod install
+  #- flutter run
+
+purge_all:
+  - pod deintegrate
+  - rm Flutter/Flutter.podspec
+  - flutter clean
+  - flutter pub cache repair
+  - flutter pub get
+  #- pod install
+  - flutter run
