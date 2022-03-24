@@ -1,3 +1,4 @@
+import 'package:day59/themes/Themes.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:day59/AppBinding.dart';
@@ -12,15 +13,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      darkTheme: ThemeData(
-        primarySwatch: Colors.yellow,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: 'Flutter e-commerce app',
+      theme: Themes.lightTheme,
+      darkTheme: Themes.darkTheme,
       getPages: Routes.routes,
       initialRoute: Routes.INITIAL,
       initialBinding: AppBinding(),
