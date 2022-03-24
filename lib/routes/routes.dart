@@ -1,10 +1,11 @@
+import 'package:day59/controllers/home/HomeBinding.dart';
 import 'package:day59/views/authentication/LoginPage.dart';
 import 'package:day59/views/authentication/SplashPage.dart';
 import 'package:day59/views/home/HomePage.dart';
 import 'package:get/route_manager.dart';
 
 class Routes {
-  static const INITIAL = '/splash';
+  static const INITIAL = '/home';
 
   static final routes = [
     GetPage(
@@ -18,6 +19,7 @@ class Routes {
     GetPage(
       name: '/home', 
       page: () => HomePage(),
+      binding: HomeBinding(),
     )
   ];
 }
