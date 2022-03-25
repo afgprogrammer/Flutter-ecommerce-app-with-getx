@@ -1,4 +1,5 @@
 import 'package:day59/services/networking/BaseProvider.dart';
+import 'package:day59/shared/typedef.dart';
 
 class ApiService {
   final BaseProvider _baseProvider;
