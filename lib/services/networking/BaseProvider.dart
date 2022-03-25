@@ -3,8 +3,6 @@ import 'package:day59/services/networking/ApiConstants.dart';
 import 'package:day59/services/networking/interceptors/RequestInterceptor.dart';
 import 'package:day59/services/networking/interceptors/ResponseInterceptor.dart';
 
-typedef JSON = Map<String, dynamic>;
-
 class BaseProvider extends GetConnect {
   @override
   void onInit() {
