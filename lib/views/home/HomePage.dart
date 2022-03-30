@@ -2,6 +2,7 @@ import 'package:day59/controllers/home/HomeController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({ Key? key }) : super(key: key);
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         notchMargin: 10,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
           child: Obx(() => Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -38,13 +39,9 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _bottomAppBarItem({icon, page}) {
-    return IconButton(
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      icon: Icon(icon, color: _homeController.currentPage == page ? Colors.blue.shade700 : Colors.grey, size: 22,),
-      onPressed: () => {
-        _homeController.goToTab(page)
-      },
+    return ZoomTapAnimation(
+      onTap: () => _homeController.goToTab(page),
+      child: Icon(icon, color: _homeController.currentPage == page ? Colors.blue.shade700 : Colors.grey, size: 22,),
     );
   }
 }
