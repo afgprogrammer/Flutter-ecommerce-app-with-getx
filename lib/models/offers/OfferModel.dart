@@ -1,3 +1,4 @@
+import 'package:day59/shared/typedef.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'OfferModel.freezed.dart';
@@ -6,7 +7,7 @@ part 'OfferModel.g.dart';
 @freezed
 class OfferModel with _$OfferModel {
   factory OfferModel({
-    required String id,
+    required int id,
     required String title,
     required String description,
     required String image,
@@ -15,5 +16,5 @@ class OfferModel with _$OfferModel {
     required String discountPrice,
   }) = _OfferModel;
 
-  factory OfferModel.fromJson(Map<String, dynamic> json) => _$OfferModelFromJson(json);
+  factory OfferModel.fromJson(JSON json) => _$OfferModelFromJson(json);
 }
