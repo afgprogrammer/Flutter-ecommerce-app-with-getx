@@ -38,7 +38,7 @@ class ExploreTab extends GetView<HomeController> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Center(
-                        child: Icon(IconlyLight.filter),
+                        child: Icon(IconlyLight.filter, color: Colors.grey,),
                       ),
                     ),
                   )
