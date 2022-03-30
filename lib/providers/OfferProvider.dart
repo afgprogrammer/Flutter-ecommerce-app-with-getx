@@ -1,4 +1,4 @@
-import 'package:day59/models/OfferModel.dart';
+import 'package:day59/models/offers/OfferModel.dart';
 import 'package:day59/repositories/OfferRepository.dart';
 
 class OfferProvider {
