@@ -6,6 +6,7 @@ import 'package:day59/models/offers/OfferModel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class ExploreTab extends GetView<HomeController> {
   ExploreTab({ Key? key }) : super(key: key);
@@ -77,13 +78,13 @@ class ExploreTab extends GetView<HomeController> {
                     Text("Top Categories", style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w600),),
                     TextButton(
                       onPressed: () {}, 
-                      child: Text("See All", style: theme.textTheme.bodyText2?.copyWith(color: Colors.yellow.shade800),)
+                      child: Text("See All", style: theme.textTheme.bodyText2?.copyWith(color: Colors.blue.shade500),)
                     )
                   ],
                 ),
               ),
               Container(
-                height: 45,
+                height: 60,
                 child: ListView.builder(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   scrollDirection: Axis.horizontal,
@@ -141,16 +142,44 @@ class ExploreTab extends GetView<HomeController> {
   }
 
   Widget _buildCategory(CategoryModel category, index, theme) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      margin: EdgeInsets.only(right: controller.categories.length - 1 == index ? 0 : 8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.grey.shade100,
-        // border: Border.all(color: Colors.grey.shade200, width: 1),
+    return ZoomTapAnimation(
+      beginDuration: Duration(milliseconds: 300),
+      endDuration: Duration(milliseconds: 500),
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.grey.shade100,
+        ),
+        margin: EdgeInsets.only(right: controller.categories.length - 1 == index ? 0 : 8),
+        child: Stack(
+          children: [
+            Container(
+              width: 120,
+              height: 60,
+              child: CachedNetworkImage(
+                imageUrl: category.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.black.withAlpha(110),
+                ),
+                child: Center(
+                  child: Text(category.name, style: theme.textTheme.subtitle1?.copyWith(color: Colors.white),),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
-      child: Center(child: Text(controller.categories[index].name, style: theme.textTheme.bodyText2?.copyWith(fontWeight: FontWeight.w500),))
     );
   }
 }

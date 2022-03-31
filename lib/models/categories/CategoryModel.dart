@@ -8,7 +8,8 @@ part 'CategoryModel.g.dart';
 class CategoryModel with _$CategoryModel {
   factory CategoryModel({
     required int id,
-    required String name
+    required String name,
+    required String image,
   }) = _CategoryModel;
 
   factory CategoryModel.fromJson(JSON json) => _$CategoryModelFromJson(json);
