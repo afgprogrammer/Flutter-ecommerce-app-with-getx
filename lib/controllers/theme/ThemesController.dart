@@ -16,13 +16,13 @@ class ThemesController extends GetxController {
 
   getThemeState() {
     if (storage.read('theme') != null) {
-      return changeTheme(storage.read('theme'));
+      return setTheme(storage.read('theme'));
     } 
     
-    changeTheme('light');
+    setTheme('light');
   }
 
-  void changeTheme(String value) {
+  void setTheme(String value) {
     theme = value;
     storage.write('theme', value);
 

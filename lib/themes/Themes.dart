@@ -12,6 +12,9 @@ class Themes {
       border: OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.circular(10)
+      ),
+      hintStyle: TextStyle(
+        fontSize: 14,
       )
     ),
     textTheme: TextTheme(
@@ -77,12 +80,12 @@ class Themes {
       ),
       caption: TextStyle(
         color: Colors.grey.shade800,
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: FontWeight.w400
       ),
       overline: TextStyle(
         color: Colors.grey.shade700,
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: FontWeight.w400,
         letterSpacing: -0.5
       )
@@ -92,6 +95,21 @@ class Themes {
   static ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
+    scaffoldBackgroundColor: Colors.grey.shade900,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.grey.shade900,
+      elevation: 0
+    ),
+    bottomAppBarColor: Colors.grey.shade900,
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      hintStyle: TextStyle(
+        fontSize: 14,
+      )
+    ),
     textTheme: TextTheme(
       headline1: TextStyle(
         letterSpacing: -1.5,
@@ -124,19 +142,18 @@ class Themes {
         fontWeight: FontWeight.w500
       ),
       headline6: TextStyle(
-        letterSpacing: -1.0,
-        color: Colors.grey.shade50,
-        fontSize: 20,
-        fontWeight: FontWeight.w500
-      ),
-      subtitle1: TextStyle(
         color: Colors.grey.shade50,
         fontSize: 18,
         fontWeight: FontWeight.w500
       ),
-      subtitle2: TextStyle(
+      subtitle1: TextStyle(
         color: Colors.grey.shade50,
         fontSize: 16,
+        fontWeight: FontWeight.w500
+      ),
+      subtitle2: TextStyle(
+        color: Colors.grey.shade50,
+        fontSize: 14,
         fontWeight: FontWeight.w500
       ),
       bodyText1: TextStyle(
