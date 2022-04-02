@@ -23,7 +23,7 @@ class ExploreTab extends GetView<HomeController> {
             title: Container(
               height: 45,
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                color: Get.isDarkMode ? Colors.grey.shade800 : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10)
               ),
               child: TextField(
@@ -35,7 +35,7 @@ class ExploreTab extends GetView<HomeController> {
                     child: Container(
                       width: 40,
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade300,
+                        color: Get.isDarkMode ? Colors.grey.shade700 : Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Center(
@@ -149,7 +149,6 @@ class ExploreTab extends GetView<HomeController> {
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.grey.shade100,
         ),
         margin: EdgeInsets.only(right: controller.categories.length - 1 == index ? 0 : 8),
         child: Stack(
@@ -173,7 +172,7 @@ class ExploreTab extends GetView<HomeController> {
                   color: Colors.black.withAlpha(110),
                 ),
                 child: Center(
-                  child: Text(category.name, style: theme.textTheme.subtitle1?.copyWith(color: Colors.white),),
+                  child: Text(category.name, textAlign: TextAlign.center, style: theme.textTheme.subtitle1?.copyWith(color: Colors.white),),
                 ),
               ),
             )
