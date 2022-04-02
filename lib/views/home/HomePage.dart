@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
   Widget _bottomAppBarItem({icon, page}) {
     return ZoomTapAnimation(
       onTap: () => _homeController.goToTab(page),
-      child: Icon(icon, color: _homeController.currentPage == page ? Colors.blue.shade700 : Colors.grey, size: 22,),
+      child: Icon(icon, color: _homeController.currentPage == page ? Colors.blue : Colors.grey, size: 22,),
     );
   }
 }

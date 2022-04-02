@@ -122,8 +122,8 @@ class UserTab extends StatelessWidget {
   }
 
   _showAppearanceModal(ThemeData theme, String current) {
-   Get.bottomSheet(
-     Container(
+    Get.bottomSheet(
+      Container(
         padding: EdgeInsets.all(16),
         height: 320,
         decoration: BoxDecoration(
@@ -160,17 +160,17 @@ class UserTab extends StatelessWidget {
             ),
             SizedBox(height: 16),
             ListTile(
-              leading: Icon(Icons.brightness_3, color: Colors.purple,),
+              leading: Icon(Icons.brightness_6, color: Colors.blueGrey,),
               title: Text("System", style: theme.textTheme.bodyText1),
               onTap: () {
                 _themesController.setTheme('system');
                 Get.back();
               },
-              trailing: Icon(Icons.check, color: current == 'system' ? Colors.purple : Colors.transparent,),
+              trailing: Icon(Icons.check, color: current == 'system' ? Colors.blueGrey : Colors.transparent,),
             ),
           ],
         ),
-     )
-   );
+      )
+    );
   }
 }
