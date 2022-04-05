@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:day59/controllers/home/HomeController.dart';
 import 'package:day59/models/categories/CategoryModel.dart';
 import 'package:day59/models/offers/OfferModel.dart';
+import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
@@ -23,7 +24,7 @@ class ExploreTab extends GetView<HomeController> {
             title: Container(
               height: 45,
               decoration: BoxDecoration(
-                color: Get.isDarkMode ? Colors.grey.shade800 : Colors.grey.shade200,
+                color: Get.isDarkMode ? ColorConstants.gray600 : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10)
               ),
               child: TextField(
@@ -35,7 +36,7 @@ class ExploreTab extends GetView<HomeController> {
                     child: Container(
                       width: 40,
                       decoration: BoxDecoration(
-                        color: Get.isDarkMode ? Colors.grey.shade700 : Colors.grey.shade300,
+                        color: Get.isDarkMode ? ColorConstants.gray900 : Colors.grey.shade300,
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Center(
@@ -219,8 +220,8 @@ class ExploreTab extends GetView<HomeController> {
               margin: EdgeInsets.only(right: 16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
-                border: Border.all(color: Colors.grey.shade200, width: 1),
+                color: Get.isDarkMode ? ColorConstants.gray700 : Colors.grey.shade200,
+                border: Border.all(color: Get.isDarkMode ? Colors.transparent : Colors.grey.shade200, width: 1),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -240,13 +241,13 @@ class ExploreTab extends GetView<HomeController> {
                       children: [
                         Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
                         SizedBox(height: 5,),
-                        Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText1),
+                        Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText2),
                         SizedBox(height: 8,),
                         Row(
                           children: [
-                            Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: Colors.blueGrey),),
+                            Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
                             SizedBox(width: 5,),
-                            Icon(IconlyLight.arrow_right, size: 18, color: Colors.black, ),
+                            Icon(IconlyLight.arrow_right, size: 18, color: Colors.grey.shade600, ),
                             SizedBox(width: 5,),
                             Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
                           ],

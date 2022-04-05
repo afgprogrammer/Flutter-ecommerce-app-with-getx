@@ -1,4 +1,5 @@
 import 'package:day59/controllers/theme/ThemesController.dart';
+import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:day59/shared/helpers/extensions/StringExtension.dart';
@@ -46,7 +47,7 @@ class UserTab extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Get.isDarkMode ? Colors.grey.shade800.withAlpha(100) : Colors.grey.shade200
+                      color: Get.isDarkMode ? ColorConstants.gray700 : Colors.grey.shade200
                     ),
                     child: Row(
                       children: [
@@ -55,7 +56,7 @@ class UserTab extends StatelessWidget {
                           height: 52,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Get.isDarkMode ? Colors.grey.shade700 : Colors.grey.shade300
+                            color: Get.isDarkMode ? ColorConstants.gray500 : Colors.grey.shade300
                           ),
                           child: Center(
                             child: Icon(Icons.person, size: 32, color: Colors.grey.shade500),
