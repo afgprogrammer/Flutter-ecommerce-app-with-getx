@@ -1,3 +1,4 @@
+import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:flutter/material.dart';
 
 class Themes {
@@ -93,14 +94,15 @@ class Themes {
   );
 
   static ThemeData darkTheme = ThemeData(
+    primaryColor: Colors.blue,
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.grey.shade900,
+    scaffoldBackgroundColor: ColorConstants.gray900,
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: ColorConstants.gray900,
       elevation: 0
     ),
-    bottomAppBarColor: Colors.grey.shade900,
+    bottomAppBarColor: ColorConstants.gray800,
     inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide.none,
