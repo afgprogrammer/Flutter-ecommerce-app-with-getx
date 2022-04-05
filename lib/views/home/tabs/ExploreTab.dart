@@ -49,55 +49,41 @@ class ExploreTab extends GetView<HomeController> {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              Container(
-                height: MediaQuery.of(context).size.height * 0.25,
-                child: CarouselSlider.builder(
-                  carouselController: controller.carouselController,
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    viewportFraction: 1,
-                    aspectRatio: 1,
-                    initialPage: 0,
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    onPageChanged: (index, reason) => controller.changeBanner(index),
-                  ),
-                  itemCount: controller.activeOffers.length,
-                  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) 
-                    => _buildOffer(controller.activeOffers[itemIndex]),
-                ),
-              ),
-              // Offers indicator
+              _buildOfferCarousel(context),
               _buildOfferIndicator(),
               SizedBox(height: 16,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Top Categories", style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w600),),
-                    TextButton(
-                      onPressed: () {}, 
-                      child: Text("See All", style: theme.textTheme.bodyText2?.copyWith(color: Colors.blue.shade500),)
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: 60,
-                child: ListView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: controller.categories.length,
-                  itemBuilder: (context, index) {
-                    return _buildCategory(controller.categories[index], index, theme);
-                  },
-                ),
-              )
+              _buildSection('Top Categories', theme),
+              SizedBox(height: 8,),
+              _buildCategories(theme),
+              SizedBox(height: 16,),
+              _buildSection('Discounts', theme),
+              SizedBox(height: 8,),
+              _buildDiscountedProducts(theme)
             ]),
           ),
         ],
       )
+    );
+  }
+
+  Widget _buildOfferCarousel(context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.25,
+      child: CarouselSlider.builder(
+        carouselController: controller.carouselController,
+        options: CarouselOptions(
+          autoPlay: true,
+          enlargeCenterPage: true,
+          viewportFraction: 1,
+          aspectRatio: 1,
+          initialPage: 0,
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          onPageChanged: (index, reason) => controller.changeBanner(index),
+        ),
+        itemCount: controller.activeOffers.length,
+        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) 
+          => _buildOffer(controller.activeOffers[itemIndex]),
+      ),
     );
   }
 
@@ -178,6 +164,101 @@ class ExploreTab extends GetView<HomeController> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSection(String title, ThemeData theme) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0, right: 0.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title, style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w600),),
+          MaterialButton(
+            onPressed: () {},
+            minWidth: 50,
+            splashColor: theme.primaryColor.withAlpha(10),
+            highlightColor: theme.primaryColor.withAlpha(30),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(80)
+            ),
+            child: Icon(IconlyLight.arrow_right, size: 20, color: theme.primaryColor,),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCategories(ThemeData theme) {
+    return Container(
+      height: 60,
+      child: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        scrollDirection: Axis.horizontal,
+        itemCount: controller.categories.length,
+        itemBuilder: (context, index) {
+          return _buildCategory(controller.categories[index], index, theme);
+        },
+      ),
+    );
+  }
+
+  Widget _buildDiscountedProducts(ThemeData theme) {
+    return Container(
+      height: 250,
+      child: ListView.builder(
+        padding: EdgeInsets.only(left: 16),
+        scrollDirection: Axis.horizontal,
+        itemCount: controller.discountedProducts.length,
+        itemBuilder: (context, index) {
+          return AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              margin: EdgeInsets.only(right: 16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.white,
+                border: Border.all(color: Colors.grey.shade200, width: 1),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 150,
+                    width: double.infinity,
+                    child: CachedNetworkImage(
+                      imageUrl: controller.discountedProducts[index].image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
+                        SizedBox(height: 5,),
+                        Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText1),
+                        SizedBox(height: 8,),
+                        Row(
+                          children: [
+                            Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: Colors.blueGrey),),
+                            SizedBox(width: 5,),
+                            Icon(IconlyLight.arrow_right, size: 18, color: Colors.black, ),
+                            SizedBox(width: 5,),
+                            Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ),
+          );
+        },
       ),
     );
   }

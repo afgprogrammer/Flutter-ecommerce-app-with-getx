@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:day59/models/categories/CategoryModel.dart';
 import 'package:day59/models/offers/OfferModel.dart';
+import 'package:day59/models/products/ProductModel.dart';
 import 'package:day59/providers/CategoryProvider.dart';
 import 'package:day59/providers/OfferProvider.dart';
+import 'package:day59/providers/ProductProvider.dart';
 import 'package:day59/views/home/tabs/CardTab.dart';
 import 'package:day59/views/home/tabs/ExploreTab.dart';
 import 'package:day59/views/home/tabs/FavoriteTab.dart';
@@ -17,11 +19,13 @@ class HomeController extends GetxController {
   late PageController pageController;
   late CarouselController carouselController;
   late CategoryProvider _categoryProvider = Get.find();
+  late ProductProvider _productProvider = Get.find();
 
   var currentPage = 0.obs;
   var currentBanner = 0.obs;
   var activeOffers = <OfferModel>[].obs;
   var categories = <CategoryModel>[].obs;
+  var discountedProducts = <ProductModel>[].obs;
 
   List<Widget> pages = [
     ExploreTab(),
@@ -37,21 +41,26 @@ class HomeController extends GetxController {
 
     getOffers();
     getCategories();
+    getDiscountedProducts();
     super.onInit();
   }
 
   void getOffers() {
     _offerProvider.getOffers().then((offers) {
-      print(offers);
       activeOffers.value = offers;
     });
   }
 
   void getCategories() {
     _categoryProvider.getCategories().then((categories) {
-      print(categories);
-
       this.categories.value = categories;
+    });
+  }
+
+  void getDiscountedProducts() {
+    _productProvider.getDiscountedProducts().then((products) {
+      discountedProducts(products);
+      print(products);
     });
   }
 
