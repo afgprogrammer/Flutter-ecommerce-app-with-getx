@@ -215,48 +215,53 @@ class ExploreTab extends GetView<HomeController> {
         itemBuilder: (context, index) {
           return AspectRatio(
             aspectRatio: 1,
-            child: Container(
-              clipBehavior: Clip.hardEdge,
-              margin: EdgeInsets.only(right: 16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Get.isDarkMode ? ColorConstants.gray700 : Colors.grey.shade200,
-                border: Border.all(color: Get.isDarkMode ? Colors.transparent : Colors.grey.shade200, width: 1),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed('/product/${controller.discountedProducts[index].id}');
+              },
+              child: Container(
+                clipBehavior: Clip.hardEdge,
+                margin: EdgeInsets.only(right: 16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Get.isDarkMode ? ColorConstants.gray700 : Colors.grey.shade200,
+                  border: Border.all(color: Get.isDarkMode ? Colors.transparent : Colors.grey.shade200, width: 1),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 150,
+                      width: double.infinity,
+                      child: CachedNetworkImage(
+                        imageUrl: controller.discountedProducts[index].image,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
+                          SizedBox(height: 5,),
+                          Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText2),
+                          SizedBox(height: 8,),
+                          Row(
+                            children: [
+                              Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
+                              SizedBox(width: 5,),
+                              Icon(IconlyLight.arrow_right, size: 18, color: Colors.grey.shade600, ),
+                              SizedBox(width: 5,),
+                              Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 150,
-                    width: double.infinity,
-                    child: CachedNetworkImage(
-                      imageUrl: controller.discountedProducts[index].image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
-                        SizedBox(height: 5,),
-                        Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText2),
-                        SizedBox(height: 8,),
-                        Row(
-                          children: [
-                            Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
-                            SizedBox(width: 5,),
-                            Icon(IconlyLight.arrow_right, size: 18, color: Colors.grey.shade600, ),
-                            SizedBox(width: 5,),
-                            Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
             ),
           );
         },
