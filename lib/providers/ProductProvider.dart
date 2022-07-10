@@ -11,4 +11,10 @@ class ProductProvider {
 
     return products.map((product) => ProductModel.fromJson(product)).toList();
   }
+
+  Future<ProductModel> getProductById(int id) async {
+    var product = await _productRepository.getProductId(id);
+
+    return ProductModel.fromJson(product);
+  }
 }

@@ -7,7 +7,7 @@ class ProductRepository {
   ProductRepository(this._apiService);
 
   Future<List<JSON>> getDiscountedProducts() async {
-    // var response = await _apiService.get(endpoint: '/offers');
+    // var response = await _apiService.get(endpoint: '/products/discounted');
 
     var products = [
       {
@@ -113,5 +113,12 @@ class ProductRepository {
     ];
 
     return products;
+  }
+
+  Future<JSON> getProductId(int id) async {
+    var products = await getDiscountedProducts();
+    var product = products.firstWhere((element) => element['id'] == id);
+
+    return product;
   }
 }
