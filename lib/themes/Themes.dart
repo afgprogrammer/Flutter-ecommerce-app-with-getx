@@ -6,6 +6,13 @@ class Themes {
     primarySwatch: Colors.blue,
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
+      titleTextStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.w600
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.black
+      ),
       backgroundColor: Colors.grey.shade50,
       elevation: 0
     ),
@@ -17,6 +24,9 @@ class Themes {
       hintStyle: TextStyle(
         fontSize: 14,
       )
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: Colors.red
     ),
     textTheme: TextTheme(
       headline1: TextStyle(
@@ -100,7 +110,10 @@ class Themes {
     scaffoldBackgroundColor: ColorConstants.gray900,
     appBarTheme: AppBarTheme(
       backgroundColor: ColorConstants.gray900,
-      elevation: 0
+      elevation: 0,
+      iconTheme: IconThemeData(
+        color: Colors.white
+      ),
     ),
     bottomAppBarColor: ColorConstants.gray800,
     inputDecorationTheme: InputDecorationTheme(
@@ -111,6 +124,9 @@ class Themes {
       hintStyle: TextStyle(
         fontSize: 14,
       )
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: Colors.white
     ),
     textTheme: TextTheme(
       headline1: TextStyle(
