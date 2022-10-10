@@ -2,7 +2,10 @@ import 'package:day59/controllers/home/HomeBinding.dart';
 import 'package:day59/controllers/products/ProductBinding.dart';
 import 'package:day59/views/home/HomePage.dart';
 import 'package:day59/views/messages/not_found_view.dart';
+import 'package:day59/views/notifications/notification_view.dart';
 import 'package:day59/views/product/ProductPage.dart';
+import 'package:day59/views/reservation/reservation_view.dart';
+import 'package:day59/views/services/services_view.dart';
 import 'package:day59/views/splash/splash_screen.dart';
 import 'package:get/route_manager.dart';
 
@@ -29,6 +32,18 @@ class Routes {
     GetPage(
       name: AppRoutes.splashPage,
       page: () => SplashView(),
+    ),
+    GetPage(
+      name: AppRoutes.servicesPage,
+      page: () => ServiceView(),
+    ),
+    GetPage(
+      name: AppRoutes.reservationPage,
+      page: () => ReservationView(),
+    ),
+    GetPage(
+      name: AppRoutes.notificationsPage,
+      page: () => NotificationView(),
     ),
     GetPage(
       name: AppRoutes.homePage,

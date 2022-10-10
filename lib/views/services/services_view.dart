@@ -5,6 +5,9 @@ import 'package:day59/views/services/widgets/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../shared/constants/enums.dart';
+import '../../shared/widgets/coustom_bottom_nav_bar.dart';
+
 class ServiceView extends StatelessWidget {
   const ServiceView({Key? key}) : super(key: key);
 
@@ -19,6 +22,8 @@ class ServiceView extends StatelessWidget {
           children: [const SizedBox(height: 16), const CateogoriesGrid()],
         ),
       ),
+      bottomNavigationBar:
+          const CustomBottomNavBar(selectedMenu: MenuState.services),
     );
   }
 }

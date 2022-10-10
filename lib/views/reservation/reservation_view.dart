@@ -3,6 +3,9 @@ import 'package:day59/shared/constants/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../shared/constants/enums.dart';
+import '../../shared/widgets/coustom_bottom_nav_bar.dart';
+
 class ReservationView extends StatelessWidget {
   @override
   final List<String> images = [
@@ -23,59 +26,61 @@ class ReservationView extends StatelessWidget {
   ];
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Reservation"),
-        ),
-        body: GridView.builder(
-          itemCount: images.length,
-          itemBuilder: (context, index) => Container(
-              clipBehavior: Clip.hardEdge,
-              margin: EdgeInsets.only(right: 16, left: 16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Get.isDarkMode
-                    ? ColorConstants.gray700
-                    : Colors.grey.shade200,
-                border: Border.all(
-                    color: Get.isDarkMode
-                        ? Colors.transparent
-                        : Colors.grey.shade200,
-                    width: 1),
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Image.network(
-                      images[index],
-                      fit: BoxFit.cover,
+      appBar: AppBar(
+        title: const Text("Reservation"),
+      ),
+      body: GridView.builder(
+        itemCount: images.length,
+        itemBuilder: (context, index) => Container(
+            clipBehavior: Clip.hardEdge,
+            margin: EdgeInsets.only(right: 16, left: 16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Get.isDarkMode
+                  ? ColorConstants.gray700
+                  : Colors.grey.shade200,
+              border: Border.all(
+                  color: Get.isDarkMode
+                      ? Colors.transparent
+                      : Colors.grey.shade200,
+                  width: 1),
+            ),
+            child: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: Image.network(
+                    images[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withAlpha(160),
+                    ),
+                    child: Center(
+                      child: Text("Text",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white, fontSize: 22)),
                     ),
                   ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withAlpha(160),
-                      ),
-                      child: Center(
-                        child: Text("Text",
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 22)),
-                      ),
-                    ),
-                  )
-                ],
-              )),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: getProportionateScreenWidth(16),
-              mainAxisSpacing: getProportionateScreenWidth(16)),
-        ));
+                )
+              ],
+            )),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: getProportionateScreenWidth(16),
+            mainAxisSpacing: getProportionateScreenWidth(16)),
+      ),
+      bottomNavigationBar:
+          const CustomBottomNavBar(selectedMenu: MenuState.reservations),
+    );
   }
 }

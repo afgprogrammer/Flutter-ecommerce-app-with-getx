@@ -1,10 +1,7 @@
 import 'package:day59/shared/constants/size_config.dart';
-import 'package:day59/views/home/tabs/ExploreTab.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../controllers/home/HomeBinding.dart';
-import '../home/HomePage.dart';
+import '../../shared/constants/enums.dart';
+import '../../shared/widgets/coustom_bottom_nav_bar.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({Key? key}) : super(key: key);
@@ -15,7 +12,6 @@ class NotificationView extends StatelessWidget {
       appBar: AppBar(
         title:
             const Text('Notifications', style: TextStyle(color: Colors.black)),
-        leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () => {}),
       ),
       body: ListView(
         padding: EdgeInsets.only(top: getProportionateScreenWidth(20)),
@@ -76,6 +72,8 @@ class NotificationView extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar:
+          const CustomBottomNavBar(selectedMenu: MenuState.notifications),
     );
   }
 }

@@ -1,53 +1,20 @@
-import 'package:day59/controllers/home/HomeController.dart';
-import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:day59/shared/widgets/Sidebar.dart';
+import 'package:day59/shared/widgets/coustom_bottom_nav_bar.dart';
+import 'package:day59/views/home/tabs/body.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconly/iconly.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+
+import '../../shared/constants/enums.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
-  final HomeController _homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: Drawer(child: UserTab()),
-        bottomNavigationBar: BottomAppBar(
-          elevation: 0,
-          notchMargin: 10,
-          child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-              child: Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _bottomAppBarItem(icon: IconlyBold.home, page: 0),
-                    _bottomAppBarItem(icon: IconlyBold.bookmark, page: 1),
-                    _bottomAppBarItem(icon: IconlyBold.calendar, page: 2),
-                    _bottomAppBarItem(icon: IconlyBold.message, page: 3),
-                  ],
-                ),
-              )),
+        bottomNavigationBar: CustomBottomNavBar(
+          selectedMenu: MenuState.home,
         ),
-        body: PageView(
-          controller: _homeController.pageController,
-          physics: NeverScrollableScrollPhysics(),
-          children: [..._homeController.pages],
-        ));
-  }
-
-  Widget _bottomAppBarItem({icon, page}) {
-    return ZoomTapAnimation(
-      onTap: () => _homeController.goToTab(page),
-      child: Icon(
-        icon,
-        color:
-            _homeController.currentPage == page ? kPrimaryColor : Colors.grey,
-        size: 25,
-      ),
-    );
+        body: ExploreTab());
   }
 }

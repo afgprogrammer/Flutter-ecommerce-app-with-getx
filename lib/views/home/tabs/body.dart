@@ -6,7 +6,6 @@ import 'package:day59/models/offers/OfferModel.dart';
 import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:day59/shared/constants/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';

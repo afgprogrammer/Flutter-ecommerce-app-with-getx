@@ -5,7 +5,7 @@ import 'package:day59/models/products/ProductModel.dart';
 import 'package:day59/providers/CategoryProvider.dart';
 import 'package:day59/providers/OfferProvider.dart';
 import 'package:day59/providers/ProductProvider.dart';
-import 'package:day59/views/home/tabs/ExploreTab.dart';
+import 'package:day59/views/home/tabs/body.dart';
 import 'package:day59/views/reservation/reservation_view.dart';
 import 'package:day59/views/services/services_view.dart';
 import 'package:flutter/material.dart';
