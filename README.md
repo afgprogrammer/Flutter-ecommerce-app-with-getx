@@ -10,9 +10,9 @@ flutter run
 
 ## Screenshots
 
-iamges |  iamges |
+images |  iamges |
 |---|---|
-| <img src="assets/images/ss0.PNG" width="400px" /> | <img src="assets/images/ss3.PNG" width="400px" /> |
+| <img src="assets/images/ss0.PNG" width="400px" /> | <img src="assets/images/ss12.PNG" width="400px" /> |
 | <img src="assets/images/ss1.PNG" width="400px" /> | <img src="assets/images/ss4.PNG" width="400px" /> |
 | <img src="assets/images/ss2.PNG" width="400px" /> | <img src="assets/images/ss5.PNG" width="400px" /> |
 | <img src="assets/images/ss6.PNG" width="400px" /> | <img src="assets/images/ss7.PNG" width="400px" /> |
