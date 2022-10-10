@@ -16,5 +16,5 @@ iamges |  iamges |
 | <img src="assets/images/ss1.PNG" width="400px" /> | <img src="assets/images/ss4.PNG" width="400px" /> |
 | <img src="assets/images/ss2.PNG" width="400px" /> | <img src="assets/images/ss5.PNG" width="400px" /> |
 | <img src="assets/images/ss6.PNG" width="400px" /> | <img src="assets/images/ss7.PNG" width="400px" /> |
-| <img src="assets/images/ss9.PNG" width="400px" /> | |
+| <img src="assets/images/ss9.PNG" width="400px" /> | <img src="assets/images/ss10.PNG" width="400px" /> |
 
