@@ -9,6 +9,8 @@ class CategoryProvider {
   Future<List<CategoryModel>> getCategories() async {
     var categories = await _categoryRepository.getCategories();
 
-    return categories.map((category) => CategoryModel.fromJson(category)).toList();
+    return categories
+        .map((category) => CategoryModel.fromJson(category))
+        .toList();
   }
 }

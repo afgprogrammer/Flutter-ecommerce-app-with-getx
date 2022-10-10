@@ -6,6 +6,7 @@ import 'package:day59/models/offers/OfferModel.dart';
 import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:day59/shared/constants/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -44,7 +45,7 @@ class ExploreTab extends GetView<HomeController> {
             SizedBox(
               height: 16,
             ),
-            _buildSection('Top Categories', theme),
+            _buildSection('Top Services', theme),
             SizedBox(
               height: 8,
             ),
@@ -124,48 +125,79 @@ class ExploreTab extends GetView<HomeController> {
         ));
   }
 
+  // Widget _buildCategory(CategoryModel category, index, theme) {
+  //   return ZoomTapAnimation(
+  //     beginDuration: Duration(milliseconds: 300),
+  //     endDuration: Duration(milliseconds: 500),
+  //     child: Container(
+  //       clipBehavior: Clip.hardEdge,
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.circular(50),
+  //       ),
+  //       margin: EdgeInsets.only(
+  //           right: controller.categories.length - 1 == index ? 0 : 8),
+  //       child: Stack(
+  //         children: [
+  //           Container(
+  //             width: 80,
+  //             height: 80,
+  //             child: Image.network(
+  //               category.image,
+  //               fit: BoxFit.cover,
+  //             ),
+  //           ),
+  //           Positioned(
+  //             top: 0,
+  //             left: 0,
+  //             right: 0,
+  //             bottom: 0,
+  //             child: Container(
+  //               height: 80,
+  //               decoration: BoxDecoration(
+  //                 color: Colors.black.withAlpha(160),
+  //               ),
+  //               child: Center(
+  //                 child: Text(
+  //                   category.name,
+  //                   textAlign: TextAlign.center,
+  //                   style: theme.textTheme.subtitle1
+  //                       ?.copyWith(color: Colors.white),
+  //                 ),
+  //               ),
+  //             ),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+
   Widget _buildCategory(CategoryModel category, index, theme) {
     return ZoomTapAnimation(
       beginDuration: Duration(milliseconds: 300),
       endDuration: Duration(milliseconds: 500),
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        margin: EdgeInsets.only(
-            right: controller.categories.length - 1 == index ? 0 : 8),
-        child: Stack(
-          children: [
-            Container(
-              width: 120,
-              height: 60,
-              child: Image.network(
-                category.image,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                height: 80,
+      child: GestureDetector(
+        child: SizedBox(
+          width: getProportionateScreenWidth(90),
+          height: getProportionateScreenHeight(90),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+                height: getProportionateScreenHeight(70),
+                width: getProportionateScreenWidth(70),
                 decoration: BoxDecoration(
-                  color: Colors.black.withAlpha(110),
-                ),
-                child: Center(
-                  child: Text(
-                    category.name,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.subtitle1
-                        ?.copyWith(color: Colors.white),
-                  ),
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.circular(getProportionateScreenWidth(35)),
+                    border: Border.all(color: kPrimaryColor, width: 3)),
+                child: Image.network(
+                  category.image,
+                  fit: BoxFit.contain,
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -202,7 +234,7 @@ class ExploreTab extends GetView<HomeController> {
 
   Widget _buildCategories(ThemeData theme) {
     return Container(
-      height: 60,
+      height: 80,
       child: ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,

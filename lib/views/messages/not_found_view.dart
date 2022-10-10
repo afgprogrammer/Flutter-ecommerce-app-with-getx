@@ -1,4 +1,5 @@
 import 'package:day59/shared/constants/ColorConstants.dart';
+import 'package:day59/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -11,12 +12,12 @@ class NotFoundView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F9FA),
+      backgroundColor: const Color(0xFFFFFFFF),
       floatingActionButton: SizedBox(
         height: 64,
         width: 64,
         child: ElevatedButton(
-          onPressed: () => Get.back(),
+          onPressed: () => Get.to(() => SplashView()),
           style: ElevatedButton.styleFrom(
               shape: const CircleBorder(), backgroundColor: kPrimaryColor),
           child: Icon(Icons.arrow_back, color: ColorConstants.gray50),

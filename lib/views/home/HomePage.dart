@@ -24,10 +24,10 @@ class HomePage extends StatelessWidget {
                 () => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _bottomAppBarItem(icon: IconlyLight.home, page: 0),
-                    _bottomAppBarItem(icon: IconlyLight.bookmark, page: 1),
-                    _bottomAppBarItem(icon: IconlyLight.buy, page: 2),
-                    _bottomAppBarItem(icon: IconlyLight.profile, page: 3),
+                    _bottomAppBarItem(icon: IconlyBold.home, page: 0),
+                    _bottomAppBarItem(icon: IconlyBold.bookmark, page: 1),
+                    _bottomAppBarItem(icon: IconlyBold.calendar, page: 2),
+                    _bottomAppBarItem(icon: IconlyBold.message, page: 3),
                   ],
                 ),
               )),
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
         icon,
         color:
             _homeController.currentPage == page ? kPrimaryColor : Colors.grey,
-        size: 22,
+        size: 25,
       ),
     );
   }

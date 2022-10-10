@@ -47,6 +47,19 @@ class ProductPage extends GetView<ProductController> {
       backgroundColor: Colors.white,
       body: CustomScrollView(slivers: [
         SliverAppBar(
+          leading: Container(
+              height: 45,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Get.back();
+                },
+                color: kPrimaryColor,
+              )),
           expandedHeight: MediaQuery.of(context).size.height * 0.6,
           elevation: 0,
           snap: true,
@@ -121,16 +134,16 @@ class ProductPage extends GetView<ProductController> {
                       Container(
                           padding:
                               EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(60),
-                          ),
+                          // decoration: BoxDecoration(
+                          //   color: Colors.grey.shade200,
+                          //   borderRadius: BorderRadius.circular(60),
+                          // ),
                           height: getProportionateScreenWidth(60),
                           child: Row(
                             children: [
                               ZoomTapAnimation(
                                   onTap: () => controller.decrement(),
-                                  child: Icon(Icons.bookmark_add,
+                                  child: Icon(Icons.menu_book,
                                       size: 50, color: kPrimaryColor)),
                             ],
                           ))
@@ -151,76 +164,22 @@ class ProductPage extends GetView<ProductController> {
                     height: 30,
                   ),
                   Text(
-                    "Color",
+                    "Subtext1",
                     style: TextStyle(color: Colors.grey.shade400, fontSize: 18),
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  // Container(
-                  //   height: 60,
-                  //   child: ListView.builder(
-                  //     scrollDirection: Axis.horizontal,
-                  //     itemCount: product.colors!.length,
-                  //     itemBuilder: (context, index) {
-                  //       return GestureDetector(
-                  //         onTap: () {},
-                  //         child: AnimatedContainer(
-                  //           duration: Duration(milliseconds: 300),
-                  //           margin: EdgeInsets.only(right: 10),
-                  //           decoration: BoxDecoration(
-                  //             color: _selectedColor == index ? colors[index] : colors[index].withOpacity(0.5),
-                  //             shape: BoxShape.circle
-                  //           ),
-                  //           width: 40,
-                  //           height: 40,
-                  //           child: Center(
-                  //             child: _selectedColor == index ? Icon(Icons.check, color: Colors.white,) : Container(),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
-                    'Size',
+                    'Subtext1',
                     style: TextStyle(color: Colors.grey.shade400, fontSize: 18),
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  // Container(
-                  //   height: 60,
-                  //   child: ListView.builder(
-                  //     scrollDirection: Axis.horizontal,
-                  //     itemCount: size.length,
-                  //     itemBuilder: (context, index) {
-                  //       return GestureDetector(
-                  //         onTap: () {
-                  //           setState(() {
-                  //             _selectedSize = index;
-                  //           });
-                  //         },
-                  //         child: AnimatedContainer(
-                  //           duration: Duration(milliseconds: 500),
-                  //           margin: EdgeInsets.only(right: 10),
-                  //           decoration: BoxDecoration(
-                  //             color: _selectedSize == index ? Colors.yellow[800] : Colors.grey.shade200,
-                  //             shape: BoxShape.circle
-                  //           ),
-                  //           width: 40,
-                  //           height: 40,
-                  //           child: Center(
-                  //             child: Text(size[index], style: TextStyle(color: _selectedSize == index ? Colors.white : Colors.black, fontSize: 15),),
-                  //           ),
-                  //         ),
-                  //       );
-                  //     },
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 20,
                   ),
@@ -233,10 +192,10 @@ class ProductPage extends GetView<ProductController> {
                     splashColor: Colors.yellow[700],
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    color: Colors.yellow[800],
+                    color: kPrimaryColor,
                     child: Center(
                       child: Text(
-                        "Add to Cart",
+                        "Action",
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),

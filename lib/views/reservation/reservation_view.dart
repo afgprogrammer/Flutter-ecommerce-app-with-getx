@@ -30,7 +30,7 @@ class ReservationView extends StatelessWidget {
           itemCount: images.length,
           itemBuilder: (context, index) => Container(
               clipBehavior: Clip.hardEdge,
-              margin: EdgeInsets.only(right: 16),
+              margin: EdgeInsets.only(right: 16, left: 16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: Get.isDarkMode
@@ -42,17 +42,34 @@ class ReservationView extends StatelessWidget {
                         : Colors.grey.shade200,
                     width: 1),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
                   Container(
-                    height: 150,
                     width: double.infinity,
+                    height: double.infinity,
                     child: Image.network(
                       images[index],
                       fit: BoxFit.cover,
                     ),
                   ),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      height: 80,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withAlpha(160),
+                      ),
+                      child: Center(
+                        child: Text("Text",
+                            textAlign: TextAlign.center,
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 22)),
+                      ),
+                    ),
+                  )
                 ],
               )),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
