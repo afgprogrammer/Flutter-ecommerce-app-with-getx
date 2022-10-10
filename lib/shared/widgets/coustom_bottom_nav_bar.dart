@@ -5,10 +5,11 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
 import '../../controllers/home/HomeBinding.dart';
-import '../../views/home/HomePage.dart';
+import '../../views/home/home_view.dart';
 import '../../views/notifications/notification_view.dart';
 import '../../views/reservation/reservation_view.dart';
 import '../../views/services/services_view.dart';
+import '../../views/services/tile_view.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -24,6 +25,7 @@ class CustomBottomNavBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 14),
       decoration: BoxDecoration(
+        border: Border.all(width: 2, color: ColorConstants.gray50),
         color: Colors.white,
         boxShadow: [
           BoxShadow(

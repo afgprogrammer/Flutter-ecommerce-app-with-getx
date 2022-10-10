@@ -4,7 +4,7 @@ import 'package:day59/routes/routes.dart';
 import 'package:day59/shared/constants/ColorConstants.dart';
 import 'package:day59/shared/constants/size_config.dart';
 import 'package:day59/shared/widgets/default_button.dart';
-import 'package:day59/views/home/HomePage.dart';
+import 'package:day59/views/home/home_view.dart';
 import 'package:day59/views/splash/components/splash_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

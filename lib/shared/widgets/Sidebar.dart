@@ -1,10 +1,11 @@
 import 'package:day59/controllers/theme/ThemesController.dart';
+import 'package:day59/views/change_hotel/change_hotel_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:day59/shared/helpers/extensions/StringExtension.dart';
 
-class UserTab extends StatelessWidget {
-  UserTab({Key? key}) : super(key: key);
+class SidebarView extends StatelessWidget {
+  SidebarView({Key? key}) : super(key: key);
   final ThemesController _themesController = Get.find();
 
   @override
@@ -52,7 +53,7 @@ class UserTab extends StatelessWidget {
                       SizedBox(height: 8),
                       _buildListTile(
                           'Change Hotel', Icons.hotel, '', Colors.blue, theme,
-                          onTab: () {}),
+                          onTab: () => Get.to(() => ChangeHotelView())),
                       SizedBox(height: 8),
                       _buildListTile('Contact Us', Icons.contact_phone, '',
                           Colors.green, theme,

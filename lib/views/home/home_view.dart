@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(child: UserTab()),
+        drawer: Drawer(child: SidebarView()),
         bottomNavigationBar: CustomBottomNavBar(
           selectedMenu: MenuState.home,
         ),

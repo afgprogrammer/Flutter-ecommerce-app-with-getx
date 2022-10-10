@@ -20,10 +20,6 @@ class ExploreTab extends GetView<HomeController> {
         child: CustomScrollView(
       slivers: [
         SliverAppBar(
-          leading: IconButton(
-              onPressed: () => {Scaffold.of(context).openDrawer()},
-              icon: Icon(Icons.menu)),
-          automaticallyImplyLeading: false,
           floating: true,
           pinned: true,
           centerTitle: true,
@@ -42,19 +38,19 @@ class ExploreTab extends GetView<HomeController> {
             _buildOfferCarousel(context),
             _buildOfferIndicator(),
             SizedBox(
-              height: 16,
+              height: getProportionateScreenHeight(16),
             ),
             _buildSection('Top Services', theme),
             SizedBox(
-              height: 8,
+              height: getProportionateScreenHeight(8),
             ),
             _buildCategories(theme),
             SizedBox(
-              height: 16,
+              height: getProportionateScreenHeight(16),
             ),
             _buildSection('Discounts', theme),
             SizedBox(
-              height: 8,
+              height: getProportionateScreenHeight(8),
             ),
             _buildDiscountedProducts(theme)
           ]),
@@ -88,9 +84,10 @@ class ExploreTab extends GetView<HomeController> {
     return Container(
       width: double.infinity,
       clipBehavior: Clip.hardEdge,
-      margin: EdgeInsets.all(16),
+      margin: EdgeInsets.only(
+          top: getProportionateScreenHeight(20),
+          bottom: getProportionateScreenHeight(16)),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
         color: Colors.grey.shade100,
       ),
       child: Stack(
@@ -183,13 +180,12 @@ class ExploreTab extends GetView<HomeController> {
             children: [
               Container(
                 padding: EdgeInsets.all(getProportionateScreenWidth(10)),
-                height: getProportionateScreenHeight(70),
-                width: getProportionateScreenWidth(70),
+                height: getProportionateScreenHeight(60),
+                width: getProportionateScreenWidth(60),
                 decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
                     color: Colors.white,
-                    borderRadius:
-                        BorderRadius.circular(getProportionateScreenWidth(35)),
-                    border: Border.all(color: kPrimaryColor, width: 3)),
+                    border: Border.all(color: kPrimaryColor, width: 2)),
                 child: Image.network(
                   category.image,
                   fit: BoxFit.contain,

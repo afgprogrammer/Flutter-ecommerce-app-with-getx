@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../views/notifications/notification_view.dart';
+import '../../views/services/tile_view.dart';
 
 class HomeController extends GetxController {
   final OfferProvider _offerProvider;

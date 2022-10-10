@@ -29,11 +29,11 @@ class ReservationView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Reservation"),
       ),
-      body: GridView.builder(
+      body: ListView.builder(
         itemCount: images.length,
         itemBuilder: (context, index) => Container(
+            height: getProportionateScreenHeight(200),
             clipBehavior: Clip.hardEdge,
-            margin: EdgeInsets.only(right: 16, left: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Get.isDarkMode
@@ -62,22 +62,20 @@ class ReservationView extends StatelessWidget {
                   bottom: 0,
                   child: Container(
                     height: 80,
+                    padding: EdgeInsets.only(bottom: 20),
                     decoration: BoxDecoration(
                       color: Colors.black.withAlpha(160),
                     ),
-                    child: Center(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
                       child: Text("Text",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 22)),
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Colors.white, fontSize: 25)),
                     ),
                   ),
                 )
               ],
             )),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: getProportionateScreenWidth(16),
-            mainAxisSpacing: getProportionateScreenWidth(16)),
       ),
       bottomNavigationBar:
           const CustomBottomNavBar(selectedMenu: MenuState.reservations),
