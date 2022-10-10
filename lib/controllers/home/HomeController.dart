@@ -5,12 +5,14 @@ import 'package:day59/models/products/ProductModel.dart';
 import 'package:day59/providers/CategoryProvider.dart';
 import 'package:day59/providers/OfferProvider.dart';
 import 'package:day59/providers/ProductProvider.dart';
-import 'package:day59/views/home/tabs/CardTab.dart';
-import 'package:day59/views/home/tabs/ExploreTab.dart';
-import 'package:day59/views/home/tabs/FavoriteTab.dart';
-import 'package:day59/views/home/tabs/UserTab.dart';
+import 'package:day59/views/home/tabs/body.dart';
+import 'package:day59/views/reservation/reservation_view.dart';
+import 'package:day59/views/services/services_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../views/notifications/notification_view.dart';
+import '../../views/services/tile_view.dart';
 
 class HomeController extends GetxController {
   final OfferProvider _offerProvider;
@@ -29,9 +31,9 @@ class HomeController extends GetxController {
 
   List<Widget> pages = [
     ExploreTab(),
-    FavoriteTab(),
-    CardTab(),
-    UserTab(),
+    ServiceView(),
+    ReservationView(),
+    NotificationView(),
   ];
 
   @override
