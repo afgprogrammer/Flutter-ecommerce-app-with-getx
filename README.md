@@ -10,9 +10,12 @@ flutter run
 
 ## Screenshots
 
-Light | Dark |
+images |  iamges |
 |---|---|
-| <img src="assets/screenshots/home-page.png" width="400px" /> | <img src="assets/screenshots/dark/home-page.png" width="400px" /> |
-| <img src="assets/screenshots/user-tab.png" width="400px" /> | <img src="assets/screenshots/dark/user-tab.png" width="400px" /> |
-| <img src="assets/screenshots/select-theme.png" width="400px" /> | <img src="assets/screenshots/dark/select-theme.png" width="400px" /> |
+| <img src="assets/images/ss0.PNG"/> | <img src="assets/images/ss4.PNG"  /> |
+| <img src="assets/images/ss1.PNG" /> | <img src="assets/images/ss14.PNG"  /> |
+| <img src="assets/images/ss2.PNG" /> | <img src="assets/images/ss5.PNG" /> |
+| <img src="assets/images/ss6.PNG" /> | <img src="assets/images/ss7.PNG"  /> |
+| <img src="assets/images/ss9.PNG" /> | <img src="assets/images/ss10.PNG" /> |
+| <img src="assets/images/ss13.PNG" /> | <img src="assets/images/ss12.PNG" /> |
 
