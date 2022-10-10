@@ -1,3 +1,4 @@
+import 'package:day59/shared/constants/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ColorConstants {
@@ -13,8 +14,24 @@ class ColorConstants {
   static Color gray900 = hexToColor('#0e0f0f');
 }
 
+const kPrimaryColor = Color(0xFFFFC61F);
+const kAnimationDuration = Duration(milliseconds: 200);
+final headingStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
+
+final sidebarTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(15),
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+);
 Color hexToColor(String hex) {
   assert(RegExp(r'^#([0-9a-fA-F]{6})|([0-9a-fA-F]{8})$').hasMatch(hex));
 
-  return Color(int.parse(hex.substring(1), radix: 16) + (hex.length == 7 ? 0xFF000000 : 0x00000000));
+  return Color(int.parse(hex.substring(1), radix: 16) +
+      (hex.length == 7 ? 0xFF000000 : 0x00000000));
 }

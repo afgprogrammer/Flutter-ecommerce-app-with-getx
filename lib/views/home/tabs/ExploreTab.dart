@@ -4,67 +4,63 @@ import 'package:day59/controllers/home/HomeController.dart';
 import 'package:day59/models/categories/CategoryModel.dart';
 import 'package:day59/models/offers/OfferModel.dart';
 import 'package:day59/shared/constants/ColorConstants.dart';
+import 'package:day59/shared/constants/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class ExploreTab extends GetView<HomeController> {
-  ExploreTab({ Key? key }) : super(key: key);
+  ExploreTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SafeArea(
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            floating: true,
-            pinned: true,
-            title: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                color: Get.isDarkMode ? ColorConstants.gray600 : Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-                  hintText: "Search E.g iPhone X",
-                  suffixIcon: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Container(
-                      width: 40,
-                      decoration: BoxDecoration(
-                        color: Get.isDarkMode ? ColorConstants.gray900 : Colors.grey.shade300,
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Center(
-                        child: Icon(IconlyLight.filter, color: Colors.grey,),
-                      ),
-                    ),
-                  )
-                ),
-              ),
-            )
+        child: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          leading: IconButton(
+              onPressed: () => {Scaffold.of(context).openDrawer()},
+              icon: Icon(Icons.menu)),
+          automaticallyImplyLeading: false,
+          floating: true,
+          pinned: true,
+          centerTitle: true,
+          title: Padding(
+            padding: EdgeInsets.only(
+                bottom: getProportionateScreenHeight(20),
+                top: getProportionateScreenHeight(20)),
+            child: Text(
+              "Hotel Name",
+              style: headingStyle,
+            ),
           ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              _buildOfferCarousel(context),
-              _buildOfferIndicator(),
-              SizedBox(height: 16,),
-              _buildSection('Top Categories', theme),
-              SizedBox(height: 8,),
-              _buildCategories(theme),
-              SizedBox(height: 16,),
-              _buildSection('Discounts', theme),
-              SizedBox(height: 8,),
-              _buildDiscountedProducts(theme)
-            ]),
-          ),
-        ],
-      )
-    );
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate([
+            _buildOfferCarousel(context),
+            _buildOfferIndicator(),
+            SizedBox(
+              height: 16,
+            ),
+            _buildSection('Top Categories', theme),
+            SizedBox(
+              height: 8,
+            ),
+            _buildCategories(theme),
+            SizedBox(
+              height: 16,
+            ),
+            _buildSection('Discounts', theme),
+            SizedBox(
+              height: 8,
+            ),
+            _buildDiscountedProducts(theme)
+          ]),
+        ),
+      ],
+    ));
   }
 
   Widget _buildOfferCarousel(context) {
@@ -82,8 +78,8 @@ class ExploreTab extends GetView<HomeController> {
           onPageChanged: (index, reason) => controller.changeBanner(index),
         ),
         itemCount: controller.activeOffers.length,
-        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) 
-          => _buildOffer(controller.activeOffers[itemIndex]),
+        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+            _buildOffer(controller.activeOffers[itemIndex]),
       ),
     );
   }
@@ -111,21 +107,21 @@ class ExploreTab extends GetView<HomeController> {
 
   Widget _buildOfferIndicator() {
     return Obx(() => Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: controller.activeOffers.asMap().entries.map((entry) {
-        return AnimatedContainer(
-          duration: Duration(milliseconds: 500),
-          width: 8.0,
-          height: 8.0,
-          margin: EdgeInsets.symmetric(horizontal: 4.0),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: (Get.isDarkMode ? Colors.white : Colors.blueGrey)
-              .withOpacity(controller.currentBanner == entry.key ? 0.9 : 0.2)
-          ),
-        );
-      }).toList(),
-    ));
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: controller.activeOffers.asMap().entries.map((entry) {
+            return AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              width: 8.0,
+              height: 8.0,
+              margin: EdgeInsets.symmetric(horizontal: 4.0),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: (Get.isDarkMode ? Colors.white : Colors.blueGrey)
+                      .withOpacity(
+                          controller.currentBanner == entry.key ? 0.9 : 0.2)),
+            );
+          }).toList(),
+        ));
   }
 
   Widget _buildCategory(CategoryModel category, index, theme) {
@@ -137,7 +133,8 @@ class ExploreTab extends GetView<HomeController> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(right: controller.categories.length - 1 == index ? 0 : 8),
+        margin: EdgeInsets.only(
+            right: controller.categories.length - 1 == index ? 0 : 8),
         child: Stack(
           children: [
             Container(
@@ -159,7 +156,12 @@ class ExploreTab extends GetView<HomeController> {
                   color: Colors.black.withAlpha(110),
                 ),
                 child: Center(
-                  child: Text(category.name, textAlign: TextAlign.center, style: theme.textTheme.subtitle1?.copyWith(color: Colors.white),),
+                  child: Text(
+                    category.name,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.subtitle1
+                        ?.copyWith(color: Colors.white),
+                  ),
                 ),
               ),
             )
@@ -175,16 +177,23 @@ class ExploreTab extends GetView<HomeController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w600),),
+          Text(
+            title,
+            style: theme.textTheme.subtitle1
+                ?.copyWith(fontWeight: FontWeight.w600),
+          ),
           MaterialButton(
             onPressed: () {},
             minWidth: 50,
             splashColor: theme.primaryColor.withAlpha(10),
             highlightColor: theme.primaryColor.withAlpha(30),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(80)
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(80)),
+            child: Icon(
+              IconlyLight.arrow_right,
+              size: 20,
+              color: theme.primaryColor,
             ),
-            child: Icon(IconlyLight.arrow_right, size: 20, color: theme.primaryColor,),
           )
         ],
       ),
@@ -207,7 +216,7 @@ class ExploreTab extends GetView<HomeController> {
 
   Widget _buildDiscountedProducts(ThemeData theme) {
     return Container(
-      height: 250,
+      height: getProportionateScreenHeight(200),
       child: ListView.builder(
         padding: EdgeInsets.only(left: 16),
         scrollDirection: Axis.horizontal,
@@ -217,51 +226,46 @@ class ExploreTab extends GetView<HomeController> {
             aspectRatio: 1,
             child: GestureDetector(
               onTap: () {
-                Get.toNamed('/product/${controller.discountedProducts[index].id}');
+                Get.toNamed(
+                    '/product/${controller.discountedProducts[index].id}');
               },
               child: Container(
-                clipBehavior: Clip.hardEdge,
-                margin: EdgeInsets.only(right: 16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Get.isDarkMode ? ColorConstants.gray700 : Colors.grey.shade200,
-                  border: Border.all(color: Get.isDarkMode ? Colors.transparent : Colors.grey.shade200, width: 1),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 150,
-                      width: double.infinity,
-                      child: CachedNetworkImage(
-                        imageUrl: controller.discountedProducts[index].image,
-                        fit: BoxFit.cover,
+                  clipBehavior: Clip.hardEdge,
+                  margin: EdgeInsets.only(right: 16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Get.isDarkMode
+                        ? ColorConstants.gray700
+                        : Colors.grey.shade200,
+                    border: Border.all(
+                        color: Get.isDarkMode
+                            ? Colors.transparent
+                            : Colors.grey.shade200,
+                        width: 1),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 150,
+                        width: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl: controller.discountedProducts[index].image,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
-                          SizedBox(height: 5,),
-                          Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText2),
-                          SizedBox(height: 8,),
-                          Row(
-                            children: [
-                              Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
-                              SizedBox(width: 5,),
-                              Icon(IconlyLight.arrow_right, size: 18, color: Colors.grey.shade600, ),
-                              SizedBox(width: 5,),
-                              Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ),
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(controller.discountedProducts[index].name,
+                                style: theme.textTheme.subtitle1),
+                          ],
+                        ),
+                      )
+                    ],
+                  )),
             ),
           );
         },
