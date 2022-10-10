@@ -95,9 +95,9 @@ class ExploreTab extends GetView<HomeController> {
       ),
       child: Stack(
         children: [
-          CachedNetworkImage(
+          Image.asset(
+            offer.image,
             width: double.infinity,
-            imageUrl: offer.image,
             fit: BoxFit.cover,
           )
         ],
@@ -140,8 +140,8 @@ class ExploreTab extends GetView<HomeController> {
             Container(
               width: 120,
               height: 60,
-              child: CachedNetworkImage(
-                imageUrl: category.image,
+              child: Image.network(
+                category.image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -249,8 +249,8 @@ class ExploreTab extends GetView<HomeController> {
                       Container(
                         height: 150,
                         width: double.infinity,
-                        child: CachedNetworkImage(
-                          imageUrl: controller.discountedProducts[index].image,
+                        child: Image.asset(
+                          controller.discountedProducts[index].image,
                           fit: BoxFit.cover,
                         ),
                       ),

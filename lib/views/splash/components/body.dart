@@ -21,15 +21,15 @@ class _BodyState extends State<Body> {
   List<Map<String, String>> splashData = [
     {
       "text": "Welcome to Opex Guest Portal!",
-      "image": "assets/images/splash1.jpg"
+      "image": "assets/images/splash_1.png"
     },
     {
       "text": "We help guests conect with \hotels around the world",
-      "image": "assets/images/splash2.jpg"
+      "image": "assets/images/splash_2.png"
     },
     {
       "text": "We show the easy way to do it.",
-      "image": "assets/images/splash3.jpg"
+      "image": "assets/images/splash_3.png"
     },
   ];
   @override
@@ -54,6 +54,7 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
+            Icon(Icons.menu),
             Expanded(
               flex: 2,
               child: Padding(
