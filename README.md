@@ -12,8 +12,8 @@ flutter run
 
 Light | Dark |
 |---|---|
-| <img src="assets/screenshots/ss0.PNG" width="400px" /> | <img src="assets/screenshots/ss3.PNG" width="400px" /> |
-| <img src="assets/screenshots/ss1.PNG" width="400px" /> | <img src="assets/screenshots/ss4.PNG.png" width="400px" /> |
-| <img src="assets/screenshots/ss2.PNG" width="400px" /> | <img src="assets/screenshots/ss5.PNG.png" width="400px" /> |
-| <img src="assets/screenshots/ss6.PNG" width="400px" /> | <img src="assets/screenshots/ss7.PNG.png" width="400px" /> |
+| <img src="assets/images/ss0.PNG" width="400px" /> | <img src="assets/images/ss3.PNG" width="400px" /> |
+| <img src="assets/images/ss1.PNG" width="400px" /> | <img src="assets/images/ss4.PNG.png" width="400px" /> |
+| <img src="assets/images/ss2.PNG" width="400px" /> | <img src="assets/images/ss5.PNG.png" width="400px" /> |
+| <img src="assets/images/ss6.PNG" width="400px" /> | <img src="assets/images/ss7.PNG.png" width="400px" /> |
 
