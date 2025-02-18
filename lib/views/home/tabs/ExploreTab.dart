@@ -159,7 +159,7 @@ class ExploreTab extends GetView<HomeController> {
                   color: Colors.black.withAlpha(110),
                 ),
                 child: Center(
-                  child: Text(category.name, textAlign: TextAlign.center, style: theme.textTheme.subtitle1?.copyWith(color: Colors.white),),
+                  child: Text(category.name, textAlign: TextAlign.center, style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),),
                 ),
               ),
             )
@@ -175,7 +175,7 @@ class ExploreTab extends GetView<HomeController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w600),),
+          Text(title, style: theme.textTheme.titleLarge),
           MaterialButton(
             onPressed: () {},
             minWidth: 50,
@@ -243,17 +243,17 @@ class ExploreTab extends GetView<HomeController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(controller.discountedProducts[index].name, style: theme.textTheme.subtitle1),
+                          Text(controller.discountedProducts[index].name, style: theme.textTheme.titleLarge),
                           SizedBox(height: 5,),
-                          Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyText2),
+                          Text(controller.discountedProducts[index].brand, style: theme.textTheme.bodyMedium),
                           SizedBox(height: 8,),
                           Row(
                             children: [
-                              Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyText1?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
+                              Text("${controller.discountedProducts[index].price}", style: theme.textTheme.bodyLarge?.copyWith(decoration: TextDecoration.lineThrough, color: ColorConstants.gray200),),
                               SizedBox(width: 5,),
                               Icon(IconlyLight.arrow_right, size: 18, color: Colors.grey.shade600, ),
                               SizedBox(width: 5,),
-                              Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.subtitle1?.copyWith(),),
+                              Text("${controller.discountedProducts[index].discountPrice}", style: theme.textTheme.titleLarge?.copyWith(),),
                             ],
                           )
                         ],

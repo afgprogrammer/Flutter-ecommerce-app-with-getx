@@ -25,7 +25,7 @@ class UserTab extends StatelessWidget {
                 titlePadding: EdgeInsets.symmetric(horizontal: 16),
                 title: Text(
                   'Settings',
-                  style: theme.textTheme.headline6,
+                  style: theme.textTheme.headlineSmall,
                 ),
               ),
             ),
@@ -40,7 +40,7 @@ class UserTab extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 16),
-                  Text("Account", style: theme.textTheme.headline6?.copyWith(fontWeight: FontWeight.w400)),
+                  Text("Account", style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w400)),
                   SizedBox(height: 16),
                   Container(
                     height: 80,
@@ -63,12 +63,12 @@ class UserTab extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 16),
-                        Text("Login / Register", style: theme.textTheme.subtitle1?.copyWith(fontWeight: FontWeight.w400, color: Colors.blue)),
+                        Text("Login / Register", style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w400, color: Colors.blue)),
                       ],
                     ),
                   ),
                   SizedBox(height: 32),
-                  Text("Settings", style: theme.textTheme.headline6?.copyWith(fontWeight: FontWeight.w400)),
+                  Text("Settings", style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w400)),
                   SizedBox(height: 16),
                   GetBuilder<ThemesController>(builder: (_) {
                     return _buildListTile('Appearance', Icons.dark_mode, _.theme.toCapitalized(), Colors.purple, theme, onTab: () => _showAppearanceModal(theme, _.theme));
@@ -85,7 +85,7 @@ class UserTab extends StatelessWidget {
 
                 ],
               ),
-              Text("Version 1.0.0", style: theme.textTheme.bodyText2?.copyWith(color: Colors.grey.shade500)),
+              Text("Version 1.0.0", style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey.shade500)),
             ],
           ),
         )
@@ -107,13 +107,13 @@ class UserTab extends StatelessWidget {
           child: Icon(icon, color: color,),
         ),
       ),
-      title: Text(title, style: theme.textTheme.subtitle1),
+      title: Text(title, style: theme.textTheme.titleLarge),
       trailing: Container(
         width: 90,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(trailing, style: theme.textTheme.bodyText1?.copyWith(color: Colors.grey.shade600)),
+            Text(trailing, style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey.shade600)),
             Icon(Icons.arrow_forward_ios, size: 16,),
           ],
         ),
@@ -138,11 +138,11 @@ class UserTab extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Select a Theme", style: theme.textTheme.subtitle1,),
+            Text("Select a Theme", style: theme.textTheme.titleLarge,),
             SizedBox(height: 32),
             ListTile(
               leading: Icon(Icons.brightness_5, color: Colors.blue,),
-              title: Text("Light", style: theme.textTheme.bodyText1),
+              title: Text("Light", style: theme.textTheme.bodyLarge),
               onTap: () {
                 _themesController.setTheme('light');
                 Get.back();
@@ -152,7 +152,7 @@ class UserTab extends StatelessWidget {
             SizedBox(height: 16),
             ListTile(
               leading: Icon(Icons.brightness_2, color: Colors.orange,),
-              title: Text("Dark", style: theme.textTheme.bodyText1),
+              title: Text("Dark", style: theme.textTheme.bodyLarge),
               onTap: () {
                 _themesController.setTheme('dark');
                 Get.back();
@@ -162,7 +162,7 @@ class UserTab extends StatelessWidget {
             SizedBox(height: 16),
             ListTile(
               leading: Icon(Icons.brightness_6, color: Colors.blueGrey,),
-              title: Text("System", style: theme.textTheme.bodyText1),
+              title: Text("System", style: theme.textTheme.bodyLarge),
               onTap: () {
                 _themesController.setTheme('system');
                 Get.back();

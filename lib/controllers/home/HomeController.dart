@@ -17,7 +17,7 @@ class HomeController extends GetxController {
   HomeController(this._offerProvider);
 
   late PageController pageController;
-  late CarouselController carouselController;
+  late CarouselSliderController carouselController;
   late CategoryProvider _categoryProvider = Get.find();
   late ProductProvider _productProvider = Get.find();
 
@@ -37,7 +37,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     pageController = PageController(initialPage: 0);
-    carouselController = CarouselController();
+    carouselController = CarouselSliderController();
 
     getOffers();
     getCategories();

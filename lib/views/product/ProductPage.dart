@@ -101,7 +101,7 @@ class ProductPage extends GetView<ProductController> {
                     SizedBox(height: 8,),
                     Row(
                       children: [
-                        Text(product.rating.toString(), style: theme.textTheme.bodyText2!.copyWith(
+                        Text(product.rating.toString(), style: theme.textTheme.bodyMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),),
                         SizedBox(width: 8,),
@@ -118,7 +118,7 @@ class ProductPage extends GetView<ProductController> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(product.price.toString() + '.00',
-                          style: theme.textTheme.subtitle1!.copyWith(
+                          style: theme.textTheme.titleLarge!.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
